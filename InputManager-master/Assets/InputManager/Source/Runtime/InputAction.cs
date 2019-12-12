@@ -151,7 +151,7 @@ namespace Luminosity.IO
 			foreach(var binding in m_bindings)
 			{
 				value = binding.GetButtonDown();
-				if(value.HasValue)
+                if (value.HasValue)
 					break;
 			}
 

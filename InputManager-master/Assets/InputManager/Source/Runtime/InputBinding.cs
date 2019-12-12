@@ -74,10 +74,30 @@ namespace Luminosity.IO
 		private ButtonState m_remoteButtonState;
 		private ButtonState m_analogButtonState;
 
+        public KeyCode modifier = KeyCode.None;
 		public KeyCode Positive
 		{
-			get { return m_positive; }
-			set { m_positive = value; }
+            get
+            {
+                if(KeyCode.None == modifier)
+                {
+                    return m_positive;
+                }
+                if(Input.GetKey(modifier))
+                {
+                    return m_positive;
+                }
+                return KeyCode.None;
+            }
+            set
+            {
+                modifier = KeyCode.None;
+                if(Input.GetKey(KeyCode.LeftShift))
+                {
+                    modifier = KeyCode.LeftShift;
+                }
+                m_positive = value;
+            }
 		}
 
 		public KeyCode Negative
