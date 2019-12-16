@@ -170,10 +170,6 @@ namespace Luminosity.IO.Examples
 				if(m_changePositiveKey)
 				{
 					m_inputBinding.Positive = result.Key;
-                    if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-                    {
-                        m_inputBinding.modifier = KeyCode.LeftShift;
-                    }
                 }
 				else
 				{

@@ -132,6 +132,8 @@ namespace Luminosity.IO
 			return value ?? InputBinding.AXIS_NEUTRAL;
 		}
 		
+        //Ryan's Comment
+        //This GetButton() loops through all m_bindings and if one of them isn't null then it returns that value. Otherwise it reutrns false.
 		public bool GetButton()
 		{
 			bool? value = null;
