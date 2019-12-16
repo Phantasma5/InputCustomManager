@@ -79,12 +79,6 @@ namespace Luminosity.IO
         {
             get
             {
-                if (m_positive == KeyCode.W)
-                {
-                    //Ryan Comment 
-                    //Debug this later
-                    //Debug.Log(modifier + " + " + m_positive);
-                }
                 if (KeyCode.None == modifier)
                 {
                     return m_positive;
@@ -100,18 +94,7 @@ namespace Luminosity.IO
                 modifier = KeyCode.None;
                 if (Input.GetKey(KeyCode.LeftShift))
                 {
-                    if (m_positive == KeyCode.W)
-                    {
-                        Debug.Log("keycode shift");
-                    }
                     modifier = KeyCode.LeftShift;
-                }
-                else
-                {
-                    if (m_positive == KeyCode.W)
-                    {
-                        Debug.Log("keycode not shift");
-                    }
                 }
                 m_positive = value;
             }
@@ -177,7 +160,7 @@ namespace Luminosity.IO
 
         public int Axis
         {
-            get { return m_axis; }
+            get{return m_axis;}
             set
             {
                 m_axis = Mathf.Clamp(value, 0, MAX_JOYSTICK_AXES - 1);
