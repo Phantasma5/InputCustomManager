@@ -96,6 +96,26 @@ namespace Luminosity.IO
                 {
                     modifier = KeyCode.LeftShift;
                 }
+                else if(Input.GetKey(KeyCode.RightShift))
+                {
+                    modifier = KeyCode.RightShift;
+                }
+                else if (Input.GetKey(KeyCode.RightAlt))
+                {
+                    modifier = KeyCode.RightAlt;
+                }
+                else if (Input.GetKey(KeyCode.LeftAlt))
+                {
+                    modifier = KeyCode.LeftAlt;
+                }
+                else if (Input.GetKey(KeyCode.RightControl))
+                {
+                    modifier = KeyCode.RightControl;
+                }
+                else if (Input.GetKey(KeyCode.LeftControl))
+                {
+                    modifier = KeyCode.LeftControl;
+                }
                 m_positive = value;
             }
         }

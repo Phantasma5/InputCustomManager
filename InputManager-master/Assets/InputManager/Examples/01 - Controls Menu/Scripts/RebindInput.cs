@@ -196,18 +196,22 @@ namespace Luminosity.IO.Examples
 					m_inputBinding.Negative = result.Key;
 				}
 				m_keyDescription.text = (result.Key == KeyCode.None) ? "" : result.Key.ToString();
-                if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                if (InputManager.GetAxis("Vertical") == 0 && InputManager.GetAxis("Horizontal") == 0)
                 {
-                    m_keyDescription.text = "Shift " + m_keyDescription.text;
+                    if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+                    {
+                        m_keyDescription.text = "Shift " + m_keyDescription.text;
+                    }
+                    if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt))
+                    {
+                        m_keyDescription.text = "Alt " + m_keyDescription.text;
+                    }
+                    if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+                    {
+                        m_keyDescription.text = "Ctrl " + m_keyDescription.text;
+                    }
                 }
-                if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt))
-                {
-                    m_keyDescription.text = "Alt " + m_keyDescription.text;
-                }
-                if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
-                {
-                    m_keyDescription.text = "Ctrl " + m_keyDescription.text;
-                }
+                
             }
 			else
 			{
