@@ -95,7 +95,27 @@ namespace Luminosity.IO.Examples
 				{
 					if(m_changePositiveKey)
 					{
-						m_keyDescription.text = m_inputBinding.Positive == KeyCode.None ? "" : m_inputBinding.Positive.ToString();
+						string temp = "";
+						if(m_inputBinding.modifier != KeyCode.None)
+						{
+							switch(m_inputBinding.modifier)
+							{
+								case KeyCode.LeftControl:
+									temp += "CTRL ";
+									break;
+								case KeyCode.LeftAlt:
+									temp += "ALT ";
+									break;
+								case KeyCode.LeftShift:
+									temp += "SHIFT ";
+									break;
+								default:
+									temp += "";
+									break;
+							}							
+						}
+						temp += m_inputBinding.m_positive == KeyCode.None ? "" : m_inputBinding.m_positive.ToString();
+						m_keyDescription.text = temp;
 					}
 					else
 					{
