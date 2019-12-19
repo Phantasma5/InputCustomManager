@@ -152,7 +152,8 @@ namespace Luminosity.IO
 		private void WriteInputBinding(InputBinding binding, XmlWriter writer)
 		{
 			writer.WriteStartElement("Binding");
-			writer.WriteElementString("Positive", binding.Positive.ToString());
+			writer.WriteElementString("Positive", binding.m_positive.ToString());
+			writer.WriteElementString("Modifier", binding.modifier.ToString());
 			writer.WriteElementString("Negative", binding.Negative.ToString());
             writer.WriteElementString("DeadZoneType", binding.DeadZoneType.ToString());
 			writer.WriteElementString("DeadZone", binding.DeadZone.ToString(CultureInfo.InvariantCulture));

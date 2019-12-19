@@ -37,7 +37,7 @@ namespace Luminosity.IO
         public const int MAX_JOYSTICKS = 11;
 
         [SerializeField]
-        private KeyCode m_positive;
+        public KeyCode m_positive;
         [SerializeField]
         private KeyCode m_negative;
         [SerializeField]

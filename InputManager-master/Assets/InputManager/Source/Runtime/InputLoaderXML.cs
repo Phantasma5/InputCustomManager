@@ -193,67 +193,70 @@ namespace Luminosity.IO
 			{
 				ReadInputBinding_V2(action, child);
 			}
-		}
+        }
 
-		private void ReadInputBinding_V2(InputAction action, XmlNode node)
-		{
-			InputBinding binding = action.CreateNewBinding();
-			foreach(XmlNode child in node.ChildNodes)
-			{
-				switch(child.LocalName)
-				{
-				case "Positive":
-					binding.Positive = InputBinding.StringToKey(child.InnerText);
-					break;
-				case "Negative":
-					binding.Negative = InputBinding.StringToKey(child.InnerText);
-					break;
-                case "DeadZoneType":
-					binding.DeadZoneType = InputBinding.StringToDeadZoneType(child.InnerText);
-					break;
-				case "DeadZone":
-					binding.DeadZone = ReadAsFloat(child);
-					break;
-				case "Gravity":
-					binding.Gravity = ReadAsFloat(child, 1.0f);
-					break;
-				case "Sensitivity":
-					binding.Sensitivity = ReadAsFloat(child, 1.0f);
-					break;
-                case "Scale":
-					binding.Scale = ReadAsFloat(child, 1.0f);
-					break;
-				case "Snap":
-					binding.Snap = ReadAsBool(child);
-					break;
-				case "Invert":
-					binding.Invert = ReadAsBool(child);
-					break;
-				case "Type":
-					binding.Type = InputBinding.StringToInputType(child.InnerText);
-					break;
-				case "Axis":
-					binding.Axis = ReadAsInt(child);
-					break;
-				case "Joystick":
-					binding.Joystick = ReadAsInt(child);
-					break;
-				case "GamepadButton":
-					binding.GamepadButton = InputBinding.StringToGamepadButton(child.InnerText);
-					break;
-				case "GamepadAxis":
-					binding.GamepadAxis = InputBinding.StringToGamepadAxis(child.InnerText);
-					break;
-				case "GamepadPlayer":
-					binding.GamepadIndex = InputBinding.StringToGamepadIndex(child.InnerText);
-					break;
-				}
-			}
-		}
-		#endregion
+        private void ReadInputBinding_V2(InputAction action, XmlNode node)
+        {
+            InputBinding binding = action.CreateNewBinding();
+            foreach (XmlNode child in node.ChildNodes)
+            {
+                switch (child.LocalName)
+                {
+                    case "Positive":
+                        binding.m_positive = InputBinding.StringToKey(child.InnerText);
+                        break;
+                    case "Modifier":
+                        binding.modifier = InputBinding.StringToKey(child.InnerText);
+                        break;
+                    case "Negative":
+                        binding.Negative = InputBinding.StringToKey(child.InnerText);
+                        break;
+                    case "DeadZoneType":
+                        binding.DeadZoneType = InputBinding.StringToDeadZoneType(child.InnerText);
+                        break;
+                    case "DeadZone":
+                        binding.DeadZone = ReadAsFloat(child);
+                        break;
+                    case "Gravity":
+                        binding.Gravity = ReadAsFloat(child, 1.0f);
+                        break;
+                    case "Sensitivity":
+                        binding.Sensitivity = ReadAsFloat(child, 1.0f);
+                        break;
+                    case "Scale":
+                        binding.Scale = ReadAsFloat(child, 1.0f);
+                        break;
+                    case "Snap":
+                        binding.Snap = ReadAsBool(child);
+                        break;
+                    case "Invert":
+                        binding.Invert = ReadAsBool(child);
+                        break;
+                    case "Type":
+                        binding.Type = InputBinding.StringToInputType(child.InnerText);
+                        break;
+                    case "Axis":
+                        binding.Axis = ReadAsInt(child);
+                        break;
+                    case "Joystick":
+                        binding.Joystick = ReadAsInt(child);
+                        break;
+                    case "GamepadButton":
+                        binding.GamepadButton = InputBinding.StringToGamepadButton(child.InnerText);
+                        break;
+                    case "GamepadAxis":
+                        binding.GamepadAxis = InputBinding.StringToGamepadAxis(child.InnerText);
+                        break;
+                    case "GamepadPlayer":
+                        binding.GamepadIndex = InputBinding.StringToGamepadIndex(child.InnerText);
+                        break;
+                }
+            }
+        }
+        #endregion
 
-		#region [V1]
-		private SaveData Load_V1(XmlDocument doc)
+        #region [V1]
+        private SaveData Load_V1(XmlDocument doc)
 		{
 			SaveData saveData = new SaveData();
 			saveData.PlayerOneScheme = ReadAttribute(doc.DocumentElement, "playerOneDefault");
